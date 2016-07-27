@@ -1,0 +1,14 @@
+<header class="list_title">
+  <span class="edit js-edit-list-title"
+        id="list_<%= list.id %>"><%= list.escape('name') %></span>
+</header>
+
+<section class="cards"></section>
+
+<div class="add_card">
+    <a class="open_form" href="#">Добавить карточку...</a>
+    <form class="add_card" data-list-id="<%= list.id %>">
+        <textarea class="card_name" name="name" ></textarea>
+        <input type="submit" class="btn btn-success" value="Добавить" /><a href="#" class="close_form glyphicon glyphicon-remove"></a>
+    </form>
+</div>
