@@ -24,7 +24,6 @@ define([
 
         render: function () {
             var that = this;
-
             var card = that.model;
 
             var renderedContent = that.template({

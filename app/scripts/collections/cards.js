@@ -8,10 +8,7 @@ define([
     'use strict';
     var Cards = BaseCollection.extend({
         model: Card,
-        url: Conf.apiUrl+'/boards/'+Conf.board+'/cards',
-        comparator: function (card) {
-            return card.get('position');
-        }
+        url: Conf.apiUrl+'/boards/'+Conf.board+'/cards'
     });
 
     return Cards;

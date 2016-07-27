@@ -40,23 +40,19 @@ define([
 
         render: function () {
             var that = this;
-
-            // console.log('render board');
             var board = that.model;
-            //var lists = new Lists();
 
             that.$el.html(that.template({
                 board: board
             }));
 
-            // render lists
             that.lists.each(function (list) {
-                var listShow = new ListView({
+                var listView = new ListView({
                     model: list,
                     collection: that.cards,
                     vent: that.appEvents
                 });
-                that.$('section.lists').append(listShow.render().el);
+                that.$('section.lists').append(listView.render().$el);
             });
 
             return that;

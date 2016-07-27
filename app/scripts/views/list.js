@@ -22,12 +22,6 @@ define([
         initialize: function (options) {
             var that = this;
             that.appEvents = options.vent;
-            //that.cards = new Cards({listId:that.model.get('id')});
-            //that.cards.fetch({
-            //    success: function() {
-            //        that.render();
-            //    }
-            //});
             that.collection.on('add', that.render, that);
             that.collection.on('remove', that.render, that);
             that.collection.on('change', that.render, that);
@@ -53,10 +47,8 @@ define([
         cardClick: function (event) {
             event.stopPropagation();
             var that = this;
-
             var cardId = $(event.target).data('cardId');
             var $cardModal = $('section.card_detail');
-
             var list = that.model;
             var card = that.collection.get(cardId);
 
@@ -75,10 +67,8 @@ define([
         addCard: function (event) {
             event.preventDefault();
             var that = this;
-
             var list = that.model;
             var card = new Card();
-
             var $form = $(event.target);
             var attrs = {};
 
@@ -99,7 +89,6 @@ define([
 
         render: function () {
             var that = this;
-
             var list = that.model;
             var list_id = list.get('id');
 
@@ -108,7 +97,6 @@ define([
                 list: list
             }));
 
-            // include cards index
             var cardsView = new CardsView({
                 cards: that.collection.where({idList:that.model.id})
             });
